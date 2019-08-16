@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "195398570777",
+    "firebase_url": "https://testegran-a8093.firebaseio.com",
+    "project_id": "testegran-a8093",
+    "storage_bucket": "testegran-a8093.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195398570777:android:0fa63897c426bcca",
+        "android_client_info": {
+          "package_name": "br.com.testegran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195398570777-hufbkc4rctc770q0sv88cu6r1tqg93vr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.testegran",
+            "certificate_hash": "4b2fa8fae550d689c55f842732bef8c0b4599942"
+          }
+        },
+        {
+          "client_id": "195398570777-6ff1u12aoijtiohd05btlurtg9gqg022.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_xANLr5IEdHHCn2r9IUqiGSjQbCPFygQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195398570777-6ff1u12aoijtiohd05btlurtg9gqg022.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

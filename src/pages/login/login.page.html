@@ -1,0 +1,43 @@
+<ion-content padding>
+
+    <app-spacer [size]="64"></app-spacer>
+    <h1>Bem vindo de volta!</h1>
+    <app-spacer [size]="64"></app-spacer>
+
+    <form>
+        <mdc-form-field fluid>
+            <mdc-text-field type="email" label="E-Mail"></mdc-text-field>
+        </mdc-form-field>
+
+        <app-spacer [size]="32"></app-spacer>
+
+        <mdc-form-field fluid>
+            <mdc-text-field type="password" label="Senha"></mdc-text-field>
+        </mdc-form-field>
+
+        <app-spacer [size]="32"></app-spacer>
+
+        <app-center>
+            <button mdc-button unelevated>Login</button>
+        </app-center>
+
+    </form>
+
+    <app-divider text="OU ENTRE COM"></app-divider>
+
+    <div class="social-btns">
+        <button mdc-button outlined class="social-btns__google" (click)="socialLogin(gg)">
+            <mdc-icon>
+                <img src="../../assets/google.svg">
+            </mdc-icon>
+            Google
+        </button>
+        <button mdc-button outlined class="social-btns__facebook" (click)="socialLogin(fb)">
+            <mdc-icon>
+                <img src="../../assets/facebook.svg">
+            </mdc-icon>
+            Facebook
+        </button>
+    </div>
+
+</ion-content>

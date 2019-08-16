@@ -1,0 +1,23 @@
+h1{
+  font-size: 36px;
+  padding-left: 16px;
+}
+
+.social-btns{
+  $self: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  &__{
+    &google{
+      border-color: #EA4335 !important;
+      color: #EA4335 !important;
+    }
+    &facebook{
+      border-color: #3A589B !important;
+      color: #3A589B !important;
+    }
+  }
+}

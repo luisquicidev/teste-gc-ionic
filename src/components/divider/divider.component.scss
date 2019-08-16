@@ -1,0 +1,14 @@
+.app-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::before, &:after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #666;
+  }
+  span{
+    padding: 8px;
+  }
+}
