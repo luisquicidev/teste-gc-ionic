@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.page.html',
-  styleUrls: ['./news.page.scss'],
+    selector: 'app-news',
+    templateUrl: './news.page.html',
+    styleUrls: ['./news.page.scss'],
 })
 export class NewsPage implements OnInit {
 
-  constructor() { }
+    constructor(
+        private firebase: AngularFirestore
+    ) {
+    }
 
-  ngOnInit() {
-  }
+    async ngOnInit() {
+        const news  = await this.firebase.collection('news').get().toPromise();
+        console.log(news);
+    }
 
 }

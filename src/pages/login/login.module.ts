@@ -10,6 +10,7 @@ import {MdcButtonModule, MdcCardModule, MdcFormFieldModule, MdcIconModule, MdcTe
 import {SpacerComponent} from '../../components/spacer/spacer.component';
 import {CenterComponent} from '../../components/center/center.component';
 import {DividerComponent} from '../../components/divider/divider.component';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
         MdcFormFieldModule,
         MdcTextFieldModule,
         MdcButtonModule,
-        MdcIconModule
+        MdcIconModule,
+        AngularFireAuthModule
     ],
     declarations: [LoginPage, SpacerComponent, CenterComponent, DividerComponent]
 })

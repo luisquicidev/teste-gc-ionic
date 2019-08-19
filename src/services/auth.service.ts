@@ -2,16 +2,17 @@ import {Injectable} from '@angular/core';
 import {GooglePlus} from '@ionic-native/google-plus/ngx';
 import {Facebook} from '@ionic-native/facebook/ngx';
 import {SocialLoginEnum} from '../enum/social-login.enum';
-import {ɵNgStyleR2Impl} from '@angular/common';
+import * as firebase from 'firebase';
+import {AngularFireAuth} from '@angular/fire/auth';
+import OAuthCredential = firebase.auth.OAuthCredential;
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
     constructor(
         private facebook: Facebook,
         private google: GooglePlus,
+        private fireAuth: AngularFireAuth
     ) {
     }
 
@@ -32,12 +33,23 @@ export class AuthService {
 
     async googleLogin() {
         const res = await this.google.login({}) as GoogleLoginResponse;
-        console.log(res);
+        this.firebaseLogin(SocialLoginEnum.GOOGLE, res.accessToken);
     }
 
     async facebookLogin() {
         const res = await this.facebook.login(['email']);
-        console.log(res);
+        this.firebaseLogin(SocialLoginEnum.FACEBOOK, res.authResponse.accessToken);
+    }
+
+    async firebaseLogin(type: SocialLoginEnum, accessToken: string) {
+        let credential: OAuthCredential;
+        if (type === SocialLoginEnum.FACEBOOK) {
+            credential = firebase.auth.FacebookAuthProvider.credential(accessToken);
+        } else {
+            credential = firebase.auth.GoogleAuthProvider.credential(null, accessToken);
+        }
+
+        const user = await this.fireAuth.auth.signInWithCredential(credential);
     }
 }
 
