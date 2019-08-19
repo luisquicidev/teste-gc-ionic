@@ -1,34 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Notícias</ion-title>
-  </ion-toolbar>
+    <mdc-top-app-bar [scrollTarget]="standardContent">
+        <mdc-top-app-bar-row>
+            <mdc-top-app-bar-section align="start" title="Noticias">
+            </mdc-top-app-bar-section>
+            <mdc-top-app-bar-section align="end">
+              <mdc-icon mdcTopAppBarActionItem clickable (click)="goTo('/events')">event</mdc-icon>
+              <mdc-icon mdcTopAppBarActionItem clickable (click)="goTo('/login')">person</mdc-icon>
+            </mdc-top-app-bar-section>
+        </mdc-top-app-bar-row>
+    </mdc-top-app-bar>
 </ion-header>
 
-<ion-content padding>
-  <mdc-card class="demo-card" *ngFor="">
-    <mdc-card-primary-action>
-      <mdc-card-media class="demo-card__media--16-9" wide></mdc-card-media>
-      <div class="demo-card__primary">
-        <h2 class="demo-card__title" mdcHeadline6>Our Changing Planet</h2>
-        <h3 class="demo-card__subtitle" mdcSubtitle2>by Kurt Wagner</h3>
-      </div>
-      <div class="demo-card__secondary" mdcBody2>
-        Visit ten places on our planet that are undergoing the biggest changes today.
-      </div>
-    </mdc-card-primary-action>
-    <mdc-card-actions>
-      <mdc-card-action-buttons>
-        <button mdc-button mdcCardAction="button">Read</button>
-        <button mdc-button mdcCardAction="button">Bookmark</button>
-      </mdc-card-action-buttons>
-      <mdc-card-action-icons>
-        <button mdcIconButton mdcCardAction="icon">
-          <mdc-icon mdcIconOn>favorite</mdc-icon>
-          <mdc-icon>favorite_border</mdc-icon>
-        </button>
-        <button mdcIconButton mdcCardAction="icon" icon="share"></button>
-        <button mdcIconButton mdcCardAction="icon" icon="more_vert"></button>
-      </mdc-card-action-icons>
-    </mdc-card-actions>
-  </mdc-card>
+<ion-content #standardContent>
+    <mdc-card class="demo-card" *ngFor="let n of news">
+        <mdc-card-primary-action>
+            <mdc-card-media class="demo-card__media--16-9" wide></mdc-card-media>
+            <div class="demo-card__primary">
+                <h2 class="demo-card__title" mdcHeadline6>{{n.title}}</h2>
+                <h3 class="demo-card__subtitle" mdcSubtitle2>{{n.subtitle}}</h3>
+            </div>
+            <div class="demo-card__secondary" mdcBody2>
+                {{n.text}}
+            </div>
+        </mdc-card-primary-action>
+    </mdc-card>
 </ion-content>

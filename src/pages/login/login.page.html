@@ -4,21 +4,25 @@
     <h1>Bem vindo de volta!</h1>
     <app-spacer [size]="64"></app-spacer>
 
-    <form>
+    <form [formGroup]="form" (ngSubmit)="login()">
         <mdc-form-field fluid>
-            <mdc-text-field type="email" label="E-Mail"></mdc-text-field>
+            <mdc-text-field formControlName="email" type="email" label="E-Mail"></mdc-text-field>
+            <mdc-helper-text validation *ngIf="form.get('email').errors?.required">Campo obrigatório</mdc-helper-text>
+            <mdc-helper-text validation *ngIf="form.get('email').errors?.email">Email inválido</mdc-helper-text>
         </mdc-form-field>
 
         <app-spacer [size]="32"></app-spacer>
 
         <mdc-form-field fluid>
-            <mdc-text-field type="password" label="Senha"></mdc-text-field>
+            <mdc-text-field formControlName="password" type="password" label="Senha"></mdc-text-field>
+            <mdc-helper-text validation *ngIf="form.get('password').errors?.required">Campo obrigatório</mdc-helper-text>
+            <mdc-helper-text validation *ngIf="form.get('password').errors?.minLength">A senha deve ter ao menos 6 caracteres</mdc-helper-text>
         </mdc-form-field>
 
         <app-spacer [size]="32"></app-spacer>
 
         <app-center>
-            <button mdc-button unelevated>Login</button>
+            <button type="submit" mdc-button unelevated [disabled]="form.invalid">Login</button>
         </app-center>
 
     </form>

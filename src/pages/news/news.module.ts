@@ -6,7 +6,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { NewsPage } from './news.page';
-import {MdcButtonModule, MdcCardModule, MdcIconButtonModule, MdcTypographyModule} from "@angular-mdc/web";
+import {
+    MdcButtonModule,
+    MdcCardModule,
+    MdcIconButtonModule,
+    MdcTopAppBarModule,
+    MdcTypographyModule
+} from "@angular-mdc/web";
 
 const routes: Routes = [
   {
@@ -24,7 +30,8 @@ const routes: Routes = [
         MdcCardModule,
         MdcButtonModule,
         MdcTypographyModule,
-        MdcIconButtonModule
+        MdcIconButtonModule,
+        MdcTopAppBarModule
     ],
   declarations: [NewsPage]
 })

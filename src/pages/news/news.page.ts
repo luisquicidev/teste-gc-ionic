@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-news',
@@ -7,15 +8,21 @@ import {AngularFirestore} from '@angular/fire/firestore';
     styleUrls: ['./news.page.scss'],
 })
 export class NewsPage implements OnInit {
+    private news: any[];
 
     constructor(
-        private firebase: AngularFirestore
+        private firebase: AngularFirestore,
+        private router: Router
     ) {
     }
 
     async ngOnInit() {
-        const news  = await this.firebase.collection('news').get().toPromise();
-        console.log(news);
+        this.firebase.collection('news').valueChanges().subscribe(news => {
+            this.news = news;
+        });
     }
 
+    goTo(s: string) {
+        this.router.navigate([s]);
+    }
 }

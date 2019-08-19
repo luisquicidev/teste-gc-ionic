@@ -1,9 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>events</ion-title>
-  </ion-toolbar>
+  <mdc-top-app-bar [scrollTarget]="standardContent">
+    <mdc-top-app-bar-row>
+      <mdc-top-app-bar-section align="start" title="Eventos">
+      </mdc-top-app-bar-section>
+      <mdc-top-app-bar-section align="end">
+        <mdc-icon mdcTopAppBarActionItem [routerLink]="['/events']">event</mdc-icon>
+        <mdc-icon mdcTopAppBarActionItem [routerLink]="['/login']">person</mdc-icon>
+      </mdc-top-app-bar-section>
+    </mdc-top-app-bar-row>
+  </mdc-top-app-bar>
 </ion-header>
 
-<ion-content>
-
+<ion-content #standardContent>
+  <mdc-card class="demo-card" *ngFor="let e of events">
+    <mdc-card-primary-action>
+      <mdc-card-media class="demo-card__media--16-9" wide></mdc-card-media>
+      <div class="demo-card__primary">
+        <h2 class="demo-card__title" mdcHeadline6>{{e.title}}</h2>
+        <h3 class="demo-card__subtitle" mdcSubtitle2>{{e.subtitle}}</h3>
+      </div>
+      <div class="demo-card__secondary" mdcBody2>
+        {{e.text}}
+      </div>
+    </mdc-card-primary-action>
+  </mdc-card>
 </ion-content>

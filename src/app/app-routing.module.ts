@@ -5,20 +5,20 @@ import {AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo} from '
 const routes: Routes = [
     {
         path: '',
-        loadChildren: () => import('../pages/tabs/tabs.module').then(m => m.TabsPageModule)
+        loadChildren: '../pages/news/news.module#NewsPageModule'
     },
     {
         path: 'login',
         loadChildren: '../pages/login/login.module#LoginPageModule',
         canActivate: [AngularFireAuthGuard],
-        data: redirectUnauthorizedTo(['login'])
+        data: redirectLoggedInTo(['/events'])
     },
     {path: 'news', loadChildren: '../pages/news/news.module#NewsPageModule'},
     {
         path: 'events',
         loadChildren: '../pages/events/events.module#EventsPageModule',
         canActivate: [AngularFireAuthGuard],
-        data: redirectLoggedInTo(['/main/events'])
+        data: redirectUnauthorizedTo(['/login'])
     }
 ];
 

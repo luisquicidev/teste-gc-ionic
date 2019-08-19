@@ -51,6 +51,10 @@ export class AuthService {
 
         const user = await this.fireAuth.auth.signInWithCredential(credential);
     }
+
+    async auth(credentials: { email: string, password: string }) {
+        const user = await this.fireAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
+    }
 }
 
 interface GoogleLoginResponse {

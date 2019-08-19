@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { EventsPage } from './events.page';
+import {MdcCardModule, MdcIconModule, MdcTopAppBarModule} from "@angular-mdc/web";
 
 const routes: Routes = [
   {
@@ -15,12 +16,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        MdcTopAppBarModule,
+        MdcIconModule,
+        MdcCardModule
+    ],
   declarations: [EventsPage]
 })
 export class EventsPageModule {}
